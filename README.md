@@ -11,7 +11,7 @@ is included in G/G (http://geoweb.mit.edu/gg/).
 code needs a LOT of review and tweaking but if you just need some nice looking plots (and/or want to calculate coseismic
 offsets and/or correct for these) you're good to go. 
 
-just set the parameters at the top and run via ./plotPOS.py <path/to/individual.pos> or <path/to/posdir> 
+just set the parameters at the top and run via ./plotPOS.py <path/to/individual.pos> or <path/to/dircontainingposfiles/> 
 
 features:
 
@@ -39,4 +39,4 @@ big TODOs
 
 thanks & bear with me here, i am (obviously) not a programmer and as of now not employed in any sort of geodetic capacity
 so this is all for funsies, in an effort for fill in what appears to be a pretty significant gap for advanced geodetic
-plotting. 
+plotting. that said if you do find it helpful or use it please let me know! cheers
