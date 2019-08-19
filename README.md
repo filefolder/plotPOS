@@ -1,7 +1,7 @@
 # plotPOS version 0.1 
 python plotter for POS (PBO Station Position Time Series) geodesy data, among other things
 
-requires: Python3, Numpy, Scipy, Matplotlib. nothing too weird. could reverse engineer to python2.7 fairly somewhat easily.
+requires: Python3, Numpy, Scipy, Matplotlib. nothing too weird, probably any version. could reverse engineer to python2.7 fairly somewhat easily.
 
 the code as of now is highly geared towards GAMIT/GLOBK data (e.g. the format of the rename/eq files)
 but with a little tweaking it should be easy enough to use anything. on that note the inspiration behind 
@@ -14,17 +14,27 @@ offsets and/or correct for these) you're good to go.
 just set the parameters at the top and run via ./plotPOS.py <path/to/individual.pos> or <path/to/posdir> 
 
 features:
+
 -calculates and optionally corrects for coseismic offsets, also writes these out as a GG "earthquake file"
+
 ---these are calulated via the position of several (weighted) low-pass filters
+
 -can plot residual (normalised) data trends (actually right now it ONLY plots residual trends ha)
+
 -plots these low-pass position filters (defaults to 3 months and 1 year)
+
 -interactive mode to easily identify DOY dates for ill-fitting data (good for campaign data)
+
 -calculates freq^0 white noise (defined as scatter over a period < 3 months) 
 
 big TODOs
+
 -parallize the main loop for each datafile (i'm sure this is easy, but any recommendations for a method highly appreciated)
+
 -calculate frequency-dependent noise via spectral fitting 
+
 -incorporate flags for feature parameters
+
 -make some plot settings more sane
 
 thanks & bear with me here, i am (obviously) not a programmer and as of now not employed in any sort of geodetic capacity
