@@ -13,13 +13,17 @@ offsets and/or correct for these) you're good to go.
 
 # example 
 (for help)
+
 $ plotPOS.py -h
 
 (creates AUCK_fixed.png (offsets fixed) in dir "plots", also writes these offsets to an eq file, also shows a PSD figure)
-$ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq -fix_offsets -write_offsets -plot_spectral
+
+$ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq -fix_offsets -write_offsets -plot_spectral  -days_per_data 7
 
 (creates AUCK.png in dir "plots", original data with offsets uncorrected)
-$ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq
+
+$ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq -days_per_data 7
+
 
 
 # features:
