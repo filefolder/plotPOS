@@ -16,22 +16,25 @@ offsets and/or correct for these, and for whatever reason tsview isn't doing it 
 
 $ plotPOS.py -h
 
-(creates AUCK_fixed.png (offsets fixed) in dir "plots", also writes these offsets to an eq file, also shows a PSD figure)
+- creates AUCK_fixed.png (offsets fixed) in dir "plots", also writes these offsets to an eq file, also shows a PSD figure
 
 $ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq -fix_offsets -write_offsets -plot_spectral  -days_per_data 7
 
-(creates AUCK.png in dir "plots", original data with offsets uncorrected)
+- creates AUCK.png in dir "plots", original data with offsets uncorrected
 
 $ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq -days_per_data 7
 
+- plots ALL your .pos files in your pos/ directory with 8 cores, and writes offsets
+
+$ plotPOS.py pos -plotdir plots -eqfiles itrf14.eq,auck.eq -fix_offsets -write_offsets -days_per_data 7 -numproc 8
 
 
 # features
 
-- fully parallel
-
 - calculates and optionally corrects for coseismic offsets by comparing a series of weighted low pass filters
    (also optionally writes these out as a gamit/globk "earthquake" .eq file)
+
+- fully parallel
 
 - plots these low-pass filters (defaults to 3 months & 1 year), even for non-uniform timeseries
 
@@ -43,7 +46,7 @@ $ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq -days_per_
 
 - calculate both white and frequency-dependent noise via spectral fitting 
 
-- make some plot settings more sane
+- make some plot settings more sane/easier to customise
 
 - output offset-corrected POS files (for use in noise calculations with tsfit etc)
 
