@@ -12,9 +12,15 @@ code needs review and tweaking but if you just need some nice looking plots (and
 offsets and/or correct for these) you're good to go. 
 
 # example 
+(for help)
+$ plotPOS.py -h
 
-$ plotPOS.py -h #for help
+(creates AUCK_fixed.png (offsets fixed) in dir "plots", also writes these offsets to an eq file, also shows a PSD figure)
 $ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq -fix_offsets -write_offsets -plot_spectral
+
+(creates AUCK.png in dir "plots", original data with offsets uncorrected)
+$ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq
+
 
 # features:
 
@@ -31,10 +37,12 @@ $ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq -fix_offse
 
 # TODOs
 
--calculate both white and frequency-dependent noise via spectral fitting 
+- calculate both white and frequency-dependent noise via spectral fitting 
 
--make some plot settings more sane
+- make some plot settings more sane
 
--lots of tiny formatting issues
+- output offset-corrected POS files (for use in noise calculations with tsfit etc)
+
+- lots of tiny formatting issues
 
 thanks & bear with me here. comments / tips / bug reports appreciated
