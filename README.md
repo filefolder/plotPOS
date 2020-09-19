@@ -11,17 +11,18 @@ is included in the wonderful gamit/globk suite (http://geoweb.mit.edu/gg/).
 code needs some tweaking but if you just need some nice looking plots and/or want to calculate coseismic
 offsets and/or correct for these, and for whatever reason tsview isn't doing it for you, please enjoy.  
 
-# example 
-##for help
+# examples
+
+## for help
 $ plotPOS.py -h
 
-##creates AUCK_fixed.png (offsets fixed) in dir "plots", also writes these offsets to an eq file, also shows a PSD figure
+## creates AUCK_fixed.png (offsets fixed) in dir "plots", also writes these offsets to an eq file, also shows a PSD figure
 $ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq -fix_offsets -write_offsets -plot_spectral  -days_per_data 7
 
-##creates AUCK.png in dir "plots", original data with offsets uncorrected
+## creates AUCK.png in dir "plots", original data with offsets uncorrected
 $ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq -days_per_data 7
 
-##plots ALL your .pos files in your pos/ directory with 8 cores, and writes offsets
+## plots ALL your .pos files in your pos/ directory with 8 cores, and writes offsets
 $ plotPOS.py pos -plotdir plots -eqfiles itrf14.eq,auck.eq -fix_offsets -write_offsets -days_per_data 7 -numproc 8
 
 
