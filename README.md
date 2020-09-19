@@ -26,14 +26,14 @@ $ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq -days_per_
 
 
 
-# features:
+# features
 
 - fully parallel
 
 - calculates and optionally corrects for coseismic offsets by comparing a series of weighted low pass filters
    (also optionally writes these out as a gamit/globk "earthquake" .eq file)
 
-- plots these low-pass position filters (defaults to 3 months & 1 year) for non-uniform timeseries
+- plots these low-pass filters (defaults to 3 months & 1 year), even for non-uniform timeseries
 
 - optionally plots power density spectra
 
