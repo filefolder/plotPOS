@@ -11,32 +11,24 @@ is included in G/G (http://geoweb.mit.edu/gg/).
 code needs a LOT of review and tweaking but if you just need some nice looking plots (and/or want to calculate coseismic
 offsets and/or correct for these) you're good to go. 
 
-just set the parameters at the top and run via ./plotPOS.py <path/to/individual.pos> or <path/to/dircontainingposfiles/> 
+./plotPOS.py -h for a list of commands
 
-features:
+# features:
 
--calculates and optionally corrects for coseismic offsets, also writes these out as a GG "earthquake file"
+-calculates and optionally corrects for coseismic offsets, also writes these out as a gamit/globk "earthquake" .eq file 
 
 ---these are calulated via the position of several (weighted) low-pass filters
 
--can plot residual (normalised) data trends (actually right now it ONLY plots residual trends ha)
-
 -plots these low-pass position filters (defaults to 3 months and 1 year)
 
--interactive mode to easily identify DOY dates for ill-fitting data (good for campaign data)
+-interactive mode to easily identify DOY dates for ill-fitting data (good for marking bad campaign data) 
 
--calculates freq^0 white noise (defined as scatter over a period < 3 months) 
+# TODOs
 
-big TODOs
-
--parallize the main loop for each datafile (i'm sure this is easy, but any recommendations for a method highly appreciated)
-
--calculate frequency-dependent noise via spectral fitting 
-
--incorporate flags for feature parameters
+-calculate both white and frequency-dependent noise via spectral fitting 
 
 -make some plot settings more sane
 
-thanks & bear with me here, i am (obviously) not a programmer and as of now not employed in any sort of geodetic capacity
-so this is all for funsies, in an effort for fill in what appears to be a pretty significant gap for advanced geodetic
-plotting. that said if you do find it helpful or use it please let me know! cheers
+-lots of tiny formatting issues
+
+thanks & bear with me here. comments / tips / bug reports appreciated.  
