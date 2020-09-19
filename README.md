@@ -11,37 +11,9 @@ is included in the wonderful gamit/globk suite (http://geoweb.mit.edu/gg/).
 code needs review and tweaking but if you just need some nice looking plots (and/or want to calculate coseismic
 offsets and/or correct for these) you're good to go. 
 
-usage: plotPOS.py       [-h] [-plotdir PLOTDIR] [-eqfiles RENAMEFILES]
-                        [-numproc NUMPROC] [-days_per_data DAYS_PER_DATA]
-                        [-save] [-fix_offsets] [-dont_overwrite] [-savenpz]
-                        [-interactive] [-vert_residual] [-write_verts]
-                        [-write_offsets] [-plot_spectral]
-                        targetdir_or_file
-
-VERSION 0.1 // plot POS files and fix offsets and other things
-
-positional arguments:
-  targetdir_or_file     filename or directory containing POS files
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -plotdir PLOTDIR      where output files are put
-  -eqfiles RENAMEFILES  rename files (full path, comma separated)
-  -numproc NUMPROC      number processes
-  -days_per_data DAYS_PER_DATA
-                        days combined per datapoint (default = 1 day/file)
-  -save                 save plots to plotdir?
-  -fix_offsets          fix offsets listed in eqfiles? (FALSE)
-  -dont_overwrite       dont overwrite existing plots (FALSE)
-  -savenpz              save data as numpy binary? (FALSE)
-  -interactive          enter interactive plot mode? (FALSE)
-  -vert_residual        take residual of vertical data? (FALSE)
-  -write_offsets        write calculated offsets to an eqfile? (FALSE)
-  -plot_spectral        also plot spectral power density
-                        information? (FALSE)
-
 # example 
 
+$ plotPOS.py -h #for help
 $ plotPOS.py AUCK.anu.orbit_unkno.pos -plotdir plots -eqfiles auck.eq -fix_offsets -write_offsets -plot_spectral
 
 # features:
