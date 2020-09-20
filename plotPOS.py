@@ -99,10 +99,6 @@ plot_spectral = argresults.plot_spectral
 #################################PARAMETERS YOU PROBABLY WONT NEED TO CHANGE
 days_per_year=365.24 #if you want to be specific... 
 
-#tmp location
-if sys.platform == 'linux': tmpdir = "/dev/shm/" #with trailing slash please
-else: tmpdir = '/tmp/'
-
 #spectral constants
 samplerate = days_per_year/days_per_data
 seglen = 512
@@ -129,6 +125,11 @@ vert_vel_file = "verticals.vel"
 ###################################
 
 #do a little prep / warning
+
+#tmp location
+if sys.platform == 'linux': tmpdir = "/dev/shm/" #with trailing slash please
+else: tmpdir = '/tmp/'
+
 
 if (fix_offsets or write_offsets) and not renamefiles: 
 	print("no eqfiles given! not fixing offsets") 
