@@ -98,7 +98,11 @@ plot_spectral = argresults.plot_spectral
 
 #################################PARAMETERS YOU PROBABLY WONT NEED TO CHANGE
 days_per_year=365.24 #if you want to be specific... 
-tmpdir = "/dev/shm/" #with trailing slash please. this is great for *nix machines but if you're on mac may need to just be /tmp or who knows. your problem!!
+
+#tmp location
+if sys.platform == 'linux': tmpdir = "/dev/shm/" #with trailing slash please
+else: tmpdir = '/tmp/'
+
 #spectral constants
 samplerate = days_per_year/days_per_data
 seglen = 512
