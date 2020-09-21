@@ -17,6 +17,8 @@ import multiprocessing as mp
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
+plt.switch_backend("Agg") #advised, tk has issues in mp
+
 #for the filter
 from scipy.signal import lfilter, butter, lfilter_zi, filtfilt
 from scipy.ndimage.filters import gaussian_filter #for outlier removal
@@ -364,6 +366,7 @@ def calc_offset_gauss(x,unit=days_per_data):
 
 #need a function to calculate residual timeseries
 def getresidual(time,val,sig):
+	if len(val) < 2: return val
 	p = np.polyfit(time,val,deg=1,w=[1/i for i in sig]) #for gaussian uncert use 1/sig
 	fit = np.polyval(p,time)
 	return val-fit
