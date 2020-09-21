@@ -328,7 +328,7 @@ def quickfilter(t,x,e,dt=7,freq=7/days_per_year,filttype='lowpass'):
 	if len(x) <= 3: return np.array([np.mean(x) for barf in x])
 	freq = max(0.5/len(t),freq) #makes sure we don't filter longer than possible
 	#get our spline
-	spl = UnivariateSpline(t, x, w=[sigma**-2 for sigma in e], s=2/freq ,k=2, ext=3, check_finite=False) ##what is k (order) ?? strangely 1 seems to work best?
+	spl = UnivariateSpline(t, x, w=[sigma**-1 for sigma in e], s=2/freq ,k=2, ext=3, check_finite=False) ##what is k (order) ?? strangely 1 seems to work best?
 	#^^^^ smoothing factor s is tricky, but logically should be proportional to filter length. maxing out at half the wavelength seems to work ok 
 
 	#now convert the original time vector t to one where the missing gaps are filled
@@ -364,7 +364,7 @@ def calc_offset_gauss(x,unit=days_per_data):
 
 #need a function to calculate residual timeseries
 def getresidual(time,val,sig):
-	p = np.polyfit(time,val,deg=1,w=[1/i for i in sig])
+	p = np.polyfit(time,val,deg=1,w=[1/i for i in sig]) #for gaussian uncert use 1/sig
 	fit = np.polyval(p,time)
 	return val-fit
 
@@ -525,7 +525,7 @@ def plotcontinuous(times,sub_eqdata,XXX,sigXXX,axX,plot=True):
 		#calculate and print the vertical velocity now (TODO: all velocities?)
 		if axX == axU:
 			#solves for slope (mm/yr), so essentially Uvel. sigma is the sqrt of the covariance
-			[Uvel,Uint],cov_mat = np.polyfit(times,XXX,w = [_i**-2 for _i in sigXXX],deg=1,full=False,cov='unscaled')
+			[Uvel,Uint],cov_mat = np.polyfit(times,XXX,w = [_i**-1 for _i in sigXXX],deg=1,full=False,cov='unscaled')
 			slope_err = cov_mat[0,0]**.5
 			axX.text(.77,.04,"%.1f+/-%.1f mm/yr" % (Uvel,slope_err), transform=axX.transAxes,fontsize=18,color='red')
 			#write the vert dat to a vel file 7.46527702579 46.8770977358 0 0 0 0 0 0 0 0.190957205564 0 0 ZIMM_GPS
@@ -817,7 +817,7 @@ def do_job(sub_data): #sub_data is data[i]
 	""" TODO/NOT WORKING
 	#calculate U velocity and write to vel format
 	if write_verts: 
-		[Uvel,Uint],cov_mat = np.polyfit(times,U_rf,w = [1./_i**2 for _i in sU],deg=1,full=False,cov='unscaled')
+		[Uvel,Uint],cov_mat = np.polyfit(times,U_rf,w = [1./_i for _i in sU],deg=1,full=False,cov='unscaled')
 		slope_err = cov_mat[0,0]**.5
 		v = open(vert_vel_file,'a')
 		#with open(vert_vel_file,'a') as v:
