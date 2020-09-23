@@ -17,7 +17,6 @@ import multiprocessing as mp
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
-plt.switch_backend("Agg") #advised, tk has issues in mp
 
 #for the filter
 from scipy.signal import lfilter, butter, lfilter_zi, filtfilt
@@ -132,6 +131,8 @@ vert_vel_file = "verticals.vel"
 if sys.platform == 'linux': tmpdir = "/dev/shm/" #with trailing slash please
 else: tmpdir = '/tmp/'
 
+#swap backend if saving figure. TODO figure out a sane solution to this
+if not interactive: plt.switch_backend("Agg") #advised, tk has issues in mp
 
 if (fix_offsets or write_offsets) and not renamefiles: 
 	print("no eqfiles given! not fixing offsets") 
